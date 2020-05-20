@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-# See https://github.com/zcash/lightwalletd/issues/263
+# See https://github.com/zcash/lightwalletd/issues/264
 #
 # This generates the input to `genblocks` to create block sets for
 # this test, which is two transactions mined into a block, then a
@@ -25,8 +25,9 @@ cat t-shielded-spend.txt t1.txt > blocks/663195.txt
 cp 663150.txt before-reorg.txt
 genblocks -start-height 663151 >> before-reorg.txt
 
-# now reverse the order of the tx in the same block
-cat t1.txt t-shielded-spend.txt > blocks/663195.txt
+# now reverse the order of the tx and move to a higher block
+: > blocks/663195.txt
+cat t1.txt t-shielded-spend.txt > blocks/663198.txt
 genblocks -start-height 663195 > after-reorg.txt
 
 rm -r blocks
