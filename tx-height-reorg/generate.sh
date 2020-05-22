@@ -19,7 +19,7 @@ mkdir blocks
 touch blocks/{663151..663200}.txt
 
 # Add two transactions to height 663195, first shielded, then transparent
-cat tx-8f064d23.txt t1.txt > blocks/663195.txt
+cat ../transactions/tx-8f064d23.txt t1.txt > blocks/663195.txt
 
 # Generate the blockchain
 cp 663150.txt before-reorg.txt
@@ -27,7 +27,7 @@ genblocks -start-height 663151 >> before-reorg.txt
 
 # now reverse the order of the tx and move to a higher block
 : > blocks/663195.txt
-cat t1.txt tx-8f064d23.txt > blocks/663198.txt
+cat t1.txt ../transactions/tx-8f064d23.txt > blocks/663198.txt
 genblocks -start-height 663195 > after-reorg.txt
 
 rm -r blocks

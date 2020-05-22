@@ -19,7 +19,7 @@ mkdir blocks
 touch blocks/{663151..663200}.txt
 
 # Add shielded dev-wallet transaction to height 663195
-cat tx-8f064d23.txt > blocks/663195.txt
+cat ../transactions/tx-8f064d23.txt > blocks/663195.txt
 
 # Generate the blockchain
 cp 663150.txt before-reorg.txt
