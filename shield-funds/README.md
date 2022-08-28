@@ -1,6 +1,6 @@
 # Shield funds integration testing
 
-This dataset is intended to help you test shieling funds. 
+This dataset is intended to help you test shielding funds. 
 Block `1631000` is extracted from mainnet as a starting point.
 
 Put the UTXO on `utxo-1631177.json`using the 
